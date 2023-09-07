@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: registry
+  name: registry
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: registry
+    spec:
+      containers:
+      - image: docker.io/0967840437/registry:1
+        name: registry
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+            - containerPort: 8761
+        env: # Setting Environmental Variables
+        - name: DB_HOST # Setting Database host address
+          value: mysql
+        - name: DB_NAME # Setting Database name
+          value: core_bank
+        - name: DB_USERNAME # Setting Database username
+          value: hieudx1
+        - name: DB_PASSWORD # Setting Database password
+          value: '123456789'
+status: {}

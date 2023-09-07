@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: centralize-config
+spec:
+  selector:
+    matchLabels:
+      app: centralize-config
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: centralize-config
+    spec:
+      containers:
+        - name: centralize-config
+          image: docker.io/0967840437/centralize-config:1
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "500Mi"
+              cpu: "500m"
+
