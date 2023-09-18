@@ -7,3 +7,4 @@ data:
   dbName: core_bank
   registry-host: registry
   config-host: centralize-config
+  host-keycloak: keycloak
