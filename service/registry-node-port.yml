@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: registry-2
+  name: my-release-keycloak-2
 spec:
   type: NodePort
   ports:
     - port: 8761
-      nodePort: 30010
+      nodePort: 30013
   selector:
-    app: registry
+    app: my-release-keycloak-0

@@ -5,3 +5,5 @@ B4: kubectl apply -f mysql-service.yaml
 
 kubectl delete -n default deployment mysql
 kubectl delete -n default service mysql
+
+echo "123456789" | base64
